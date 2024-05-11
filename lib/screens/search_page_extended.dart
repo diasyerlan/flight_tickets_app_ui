@@ -7,6 +7,7 @@ import 'package:flights_app/screens/all_tickets.dart';
 import 'package:flights_app/screens/bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 
@@ -66,21 +67,25 @@ class _SearchExtendedState extends State<SearchExtended> {
       body: SafeArea(
         child: Column(
           children: [
+            SizedBox(height: 10.h),
             Container(
-              height: 96,
+              height: 112.h,
               width: MediaQuery.of(context).size.width,
-              margin: const EdgeInsets.all(20),
+              margin: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
               decoration: BoxDecoration(
-                  color: grey4, borderRadius: BorderRadius.circular(16)),
+                  color: grey4, borderRadius: BorderRadius.circular(16.r)),
               child: Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    padding: EdgeInsets.symmetric(horizontal: 8.w),
                     child: GestureDetector(
                         onTap: () {
                           Navigator.pop(context);
                         },
-                        child: SvgPicture.asset('assets/icons/arrow.svg')),
+                        child: SvgPicture.asset(
+                          'assets/icons/arrow.svg',
+                          height: 25.h,
+                        )),
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -89,32 +94,27 @@ class _SearchExtendedState extends State<SearchExtended> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
+                          SizedBox(width: 10.w),
                           SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.73,
-                            height: 20,
-                            child: Row(
-                              children: [
-                                const SizedBox(width: 10),
-                                SizedBox(
-                                  width: 200,
-                                  child: TextField(
-                                    inputFormatters: [
-                                      FilteringTextInputFormatter.allow(
-                                        RegExp('[а-яА-Я]+'),
-                                      ),
-                                    ],
-                                    controller: widget.controller2,
-                                    style: const TextStyle(color: Colors.white),
-                                    decoration: const InputDecoration(
-                                        contentPadding:
-                                            EdgeInsets.only(bottom: 12),
-                                        hintStyle:
-                                            TextStyle(color: Colors.white),
-                                        hintText: 'Откуда - Москва',
-                                        border: InputBorder.none),
-                                  ),
+                            width: MediaQuery.of(context).size.width * 0.69,
+                            height: 20.h,
+                            child: TextField(
+                              inputFormatters: [
+                                FilteringTextInputFormatter.allow(
+                                  RegExp('[а-яА-Я]+'),
                                 ),
                               ],
+                              controller: widget.controller2,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w600),
+                              decoration: InputDecoration(
+                                  contentPadding: EdgeInsets.only(bottom: 14.h),
+                                  hintStyle:
+                                      const TextStyle(color: Colors.white),
+                                  hintText: 'Откуда - Москва',
+                                  border: InputBorder.none),
                             ),
                           ),
                           GestureDetector(
@@ -126,53 +126,60 @@ class _SearchExtendedState extends State<SearchExtended> {
                                   widget.controller2 = test;
                                 });
                               },
-                              child:
-                                  SvgPicture.asset('assets/icons/replace.svg')),
+                              child: Padding(
+                                padding: const EdgeInsets.only(bottom: 8.0),
+                                child: SvgPicture.asset(
+                                    'assets/icons/replace.svg'),
+                              )),
                         ],
                       ),
                       SizedBox(
-                        width: 333,
+                        width: 320.w,
                         child: Divider(
                           color: grey5,
                         ),
                       ),
                       SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.8,
-                        height: 20,
+                        height: 20.h,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Row(
-                              children: [
-                                const SizedBox(width: 10),
-                                SizedBox(
-                                  width: 200,
-                                  child: TextField(
-                                    controller: widget.controller1,
-                                    inputFormatters: [
-                                      FilteringTextInputFormatter.allow(
-                                        RegExp('[а-яА-Я]+'),
-                                      ),
-                                    ],
-                                    style: const TextStyle(color: Colors.white),
-                                    decoration: InputDecoration(
-                                        hintText: 'Куда - Турция',
-                                        contentPadding:
-                                            const EdgeInsets.only(bottom: 12),
-                                        hintStyle: TextStyle(color: grey6),
-                                        border: InputBorder.none),
+                            SizedBox(
+                              width: 10.w,
+                            ),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.69,
+                              height: 20.h,
+                              child: TextField(
+                                controller: widget.controller1,
+                                inputFormatters: [
+                                  FilteringTextInputFormatter.allow(
+                                    RegExp('[а-яА-Я]+'),
                                   ),
-                                ),
-                              ],
+                                ],
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16.sp,
+                                    fontWeight: FontWeight.w600),
+                                decoration: InputDecoration(
+                                    hintText: 'Куда - Турция',
+                                    contentPadding:
+                                        EdgeInsets.only(bottom: 9.h),
+                                    hintStyle: TextStyle(color: grey6),
+                                    border: InputBorder.none),
+                              ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(right: 18),
+                              padding: EdgeInsets.only(right: 18.w),
                               child: GestureDetector(
                                   onTap: () {
                                     widget.controller2.clear();
                                   },
-                                  child: SvgPicture.asset(
-                                      'assets/icons/union.svg')),
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(top: 8),
+                                    child: SvgPicture.asset(
+                                        'assets/icons/union.svg'),
+                                  )),
                             ),
                           ],
                         ),
@@ -183,7 +190,7 @@ class _SearchExtendedState extends State<SearchExtended> {
               ),
             ),
             SizedBox(
-              height: 33,
+              height: 40,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
@@ -305,7 +312,7 @@ class _SearchExtendedState extends State<SearchExtended> {
                       alignment: Alignment.center,
                       child: Text(
                         'Показать все',
-                        style: TextStyle(color: blue, fontSize: 16),
+                        style: TextStyle(color: blue, fontSize: 16, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ],
@@ -339,10 +346,11 @@ class _SearchExtendedState extends State<SearchExtended> {
                 )),
               ),
             ),
+            SizedBox(height: 10.h,),
             Container(
               alignment: Alignment.center,
               margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              height: 60,
+              height: 60.h,
               width: width,
               decoration: BoxDecoration(
                   color: grey8, borderRadius: BorderRadius.circular(8)),

@@ -1,8 +1,8 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flights_app/constants.dart';
 import 'package:flights_app/models/title_model.dart';
 import 'package:flights_app/screens/search_page_extended.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 class MyCard extends StatelessWidget {
@@ -33,7 +33,7 @@ class MyCard extends StatelessWidget {
             );
           },
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
             child: Column(
               children: [
                 Row(
@@ -42,12 +42,12 @@ class MyCard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8),
                       child: Image.asset(
                           fit: BoxFit.cover,
-                          height: 50,
-                          width: 50,
+                          height: 50.h,
+                          width: 50.w,
                           'assets/images/$image.png'),
                     ),
-                    const SizedBox(
-                      width: 16,
+                    SizedBox(
+                      width: 16.w,
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,23 +55,24 @@ class MyCard extends StatelessWidget {
                         Text(
                           title,
                           style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 16.sp,
                               color: white,
                               fontWeight: FontWeight.bold),
                         ),
-                        const SizedBox(
-                          height: 3,
+                        SizedBox(
+                          height: 3.h,
                         ),
                         Text(
                           subTitle,
-                          style: TextStyle(fontSize: 14, color: grey6),
+                          style: TextStyle(fontSize: 14.sp, color: grey9),
                         ),
                       ],
                     )
                   ],
                 ),
+                SizedBox(height: 3.h,),
                 Divider(
-                  color: grey6,
+                  color: grey9,
                 )
               ],
             ),

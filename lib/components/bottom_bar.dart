@@ -1,5 +1,6 @@
 import 'package:flights_app/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CustomBottomBar extends StatelessWidget {
@@ -25,8 +26,8 @@ class CustomBottomBar extends StatelessWidget {
           BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 'assets/icons/plane.svg',
-                height: 20,
-                width: 20,
+                height: 20.h,
+                width: 20.w,
               ),
               activeIcon: SvgPicture.asset('assets/icons/plane_filled.svg'),
               label: 'Авиабилеты'),

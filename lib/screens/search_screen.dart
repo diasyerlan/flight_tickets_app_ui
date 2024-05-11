@@ -4,6 +4,7 @@ import 'package:flights_app/components/rectangle.dart';
 import 'package:flights_app/models/title_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'package:flights_app/constants.dart';
@@ -22,27 +23,37 @@ class SearchScreen extends StatelessWidget {
       builder: (context, data, _) {
         return Column(
           children: [
-            const SizedBox(height: 18),
+            SizedBox(height: 18.h),
             Container(
-              height: 96,
+              height: 115.h,
               width: MediaQuery.of(context).size.width,
-              margin: const EdgeInsets.all(20),
+              margin: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
               decoration: BoxDecoration(
-                  color: grey4, borderRadius: BorderRadius.circular(16)),
+                color: grey4,
+                borderRadius: BorderRadius.circular(16.r),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.3),
+                    spreadRadius: 2.r,
+                    blurRadius: 3.r,
+                    offset: Offset(0.w, 3.h),
+                  ),
+                ],
+              ),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 18),
+                padding: EdgeInsets.symmetric(horizontal: 18.w),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(
-                      height: 20,
+                      height: 20.h,
                       child: Row(
                         children: [
                           SvgPicture.asset('assets/icons/plane1.svg'),
-                          const SizedBox(width: 10),
+                          SizedBox(width: 10.w),
                           SizedBox(
-                            width: 200,
+                            width: 200.w,
                             child: TextField(
                               inputFormatters: [
                                 FilteringTextInputFormatter.allow(
@@ -51,9 +62,10 @@ class SearchScreen extends StatelessWidget {
                               ],
                               controller: controller,
                               style: const TextStyle(color: Colors.white),
-                              decoration: const InputDecoration(
-                                  contentPadding: EdgeInsets.only(bottom: 12),
-                                  hintStyle: TextStyle(color: Colors.white),
+                              decoration: InputDecoration(
+                                  contentPadding: EdgeInsets.only(bottom: 12.h),
+                                  hintStyle:
+                                      const TextStyle(color: Colors.white),
                                   hintText: 'Откуда - Москва',
                                   border: InputBorder.none),
                             ),
@@ -62,22 +74,22 @@ class SearchScreen extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
+                      padding: EdgeInsets.symmetric(vertical: 7.h),
                       child: Divider(
                         color: grey6,
                       ),
                     ),
                     SizedBox(
-                      height: 20,
+                      height: 20.h,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Row(
                             children: [
                               SvgPicture.asset('assets/icons/search.svg'),
-                              const SizedBox(width: 10),
+                              SizedBox(width: 10.w),
                               SizedBox(
-                                width: 200,
+                                width: 200.w,
                                 child: TextField(
                                   controller: data.controller,
                                   inputFormatters: [
@@ -89,7 +101,7 @@ class SearchScreen extends StatelessWidget {
                                   decoration: InputDecoration(
                                       hintText: 'Куда - Турция',
                                       contentPadding:
-                                          const EdgeInsets.only(bottom: 12),
+                                          EdgeInsets.only(bottom: 12.h),
                                       hintStyle: TextStyle(color: grey6),
                                       border: InputBorder.none),
                                 ),
@@ -97,7 +109,7 @@ class SearchScreen extends StatelessWidget {
                             ],
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(right: 12),
+                            padding: EdgeInsets.only(right: 12.w),
                             child: GestureDetector(
                                 onTap: () {
                                   data.controller.clear();
@@ -113,7 +125,7 @@ class SearchScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10),
+              padding: EdgeInsets.symmetric(vertical: 10.h),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -127,23 +139,29 @@ class SearchScreen extends StatelessWidget {
               ),
             ),
             Container(
-              margin: const EdgeInsets.symmetric(horizontal: 20),
-              height: 270,
+              margin: EdgeInsets.symmetric(horizontal: 20.w),
+              height: 290.h,
               width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                  color: grey4, borderRadius: BorderRadius.circular(16)),
-              child: const Column(
+              decoration: BoxDecoration(boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.3),
+                  spreadRadius: 2.r,
+                  blurRadius: 3.r,
+                  offset: Offset(0.w, 3.h),
+                ),
+              ], color: grey4, borderRadius: BorderRadius.circular(16.r)),
+              child: Column(
                 children: [
-                  SizedBox(height: 16),
-                  MyCard(
+                  SizedBox(height: 16.h),
+                  const MyCard(
                       image: 'stambul',
                       title: 'Стамбул',
                       subTitle: 'Популярное направление'),
-                  MyCard(
+                  const MyCard(
                       image: 'sochi',
                       title: 'Сочи',
                       subTitle: 'Популярное направление'),
-                  MyCard(
+                  const MyCard(
                       image: 'phuket',
                       title: 'Пхукет',
                       subTitle: 'Популярное направление'),

@@ -6,6 +6,7 @@ import 'package:flights_app/constants.dart';
 import 'package:flights_app/screens/bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class AllTickets extends StatefulWidget {
@@ -33,15 +34,15 @@ class _AllTicketsState extends State<AllTickets> {
     return Scaffold(
       body: SafeArea(
           child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: Column(
           children: [
             Container(
               width: width,
-              height: 56,
+              height: 56.h,
               decoration: const BoxDecoration(color: grey8),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5),
+                padding: EdgeInsets.symmetric(horizontal: 5.w),
                 child: Row(
                   children: [
                     GestureDetector(
@@ -49,14 +50,14 @@ class _AllTicketsState extends State<AllTickets> {
                           Navigator.pop(context);
                         },
                         child: SvgPicture.asset('assets/icons/arrow.svg')),
-                    const SizedBox(width: 10),
+                    SizedBox(width: 10.w),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          '${widget.controller1.text}-${widget.controller2.text}',
+                          '${widget.controller2.text}-${widget.controller1.text}',
                           style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 16.sp,
                               fontWeight: FontWeight.w600,
                               color: white),
                         ),
@@ -70,14 +71,14 @@ class _AllTicketsState extends State<AllTickets> {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 40,
+            SizedBox(
+              height: 40.h,
             ),
             Stack(
               children: [
                 Container(
-                  margin: const EdgeInsets.only(bottom: 18),
-                  height: 650,
+                  margin: EdgeInsets.only(bottom: 18.h),
+                  height: 650.h,
                   child: ListView.builder(
                     scrollDirection: Axis.vertical,
                     itemCount: _items.length,
@@ -97,23 +98,23 @@ class _AllTicketsState extends State<AllTickets> {
                   ),
                 ),
                 Positioned(
-                  left: 90,
+                  left: 90.w,
                   bottom: 0,
                   child: Container(
-                    height: 37,
-                    width: 203,
+                    height: 37.h,
+                    width: 203.w,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50), color: blue),
+                        borderRadius: BorderRadius.circular(50.r), color: blue),
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 7),
+                      padding: EdgeInsets.symmetric(horizontal: 7.w),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Row(
                             children: [
                               SvgPicture.asset('assets/icons/filter.svg'),
-                              const SizedBox(
-                                width: 5,
+                              SizedBox(
+                                width: 5.w,
                               ),
                               Text(
                                 'Фильтр',
@@ -125,8 +126,8 @@ class _AllTicketsState extends State<AllTickets> {
                           Row(
                             children: [
                               SvgPicture.asset('assets/icons/graph.svg'),
-                              const SizedBox(
-                                width: 5,
+                              SizedBox(
+                                width: 5.w,
                               ),
                               Text(
                                 'График цен',

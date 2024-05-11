@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flights_app/constants.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class MyContainer extends StatelessWidget {
@@ -22,11 +23,11 @@ class MyContainer extends StatelessWidget {
       onTap: onTap,
       child: Container(
         alignment: Alignment.center,
-        margin: const EdgeInsets.symmetric(horizontal: 4),
+        margin: EdgeInsets.symmetric(horizontal: 4.h),
         width: width,
         decoration: BoxDecoration(
           color: grey5,
-          borderRadius: BorderRadius.circular(50),
+          borderRadius: BorderRadius.circular(50.r),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -34,10 +35,10 @@ class MyContainer extends StatelessWidget {
             if (icon != null) SvgPicture.asset('assets/icons/$icon.svg'),
             Text(
               title1,
-              style: TextStyle(fontSize: 14, color: white),
+              style: TextStyle(fontSize: 14.sp, color: white),
             ),
             if (title2 != null)
-              Text(title2!, style: TextStyle(fontSize: 14, color: grey6))
+              Text(title2!, style: TextStyle(fontSize: 14.sp, color: grey6))
           ],
         ),
       ),
